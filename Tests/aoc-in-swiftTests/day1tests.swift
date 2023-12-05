@@ -2,7 +2,7 @@ import XCTest
 
 @testable import aoc_in_swift
 
-final class aoc_in_swiftTests: XCTestCase {
+final class Day1Tests: XCTestCase {
     let input = """
         1abc2
         pqr3stu8vwx

@@ -20,7 +20,7 @@ let package = Package(
             name: "aoc-in-swiftTests",
             dependencies: ["aoc-in-swift"],
             resources: [
-                .copy("Resources/day1.txt")
+                .copy("Resources")
             ]),
     ]
 )

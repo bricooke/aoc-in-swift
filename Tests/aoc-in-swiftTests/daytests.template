@@ -1,0 +1,35 @@
+import XCTest
+
+@testable import aoc_in_swift
+
+final class DayTMPTests: XCTestCase {
+    let input = """
+"""
+
+    let part2input = """
+"""
+
+    func testPart1Example() throws {
+        XCTAssertEqual("TODO", DayTMP().part1(input: input))
+    }
+
+    func testPart1Input() throws {
+        guard let file = Bundle.module.path(forResource: "dayTMP", ofType: "txt") else {
+            fatalError()
+        }
+        let input = try! String.init(contentsOfFile: file)
+        print("Day TMP, part 1 \(DayTMP().part1(input: input))")
+    }
+
+    func testPart2Example() throws {
+        XCTAssertEqual("TODO", DayTMP().part2(input: part2input))
+    }
+
+    func testPart2Input() throws {
+        guard let file = Bundle.module.path(forResource: "dayTMP", ofType: "txt") else {
+            fatalError()
+        }
+        let input = try! String.init(contentsOfFile: file)
+        print("Day TMP, part 2 \(DayTMP().part2(input: input))")
+    }
+}

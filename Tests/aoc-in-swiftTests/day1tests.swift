@@ -25,11 +25,7 @@ final class Day1Tests: XCTestCase {
     }
 
     func testPart1Input() throws {
-        guard let file = Bundle.module.path(forResource: "day1", ofType: "txt") else {
-            fatalError()
-        }
-        let input = try! String.init(contentsOfFile: file)
-        print("Day 1, part 1 \(Day1().part1(input: input))")
+        print("Day 1, part 1 \(Day1().part1(input: testInput("day1")))")
     }
 
     func testPart2Example() throws {
@@ -37,10 +33,7 @@ final class Day1Tests: XCTestCase {
     }
 
     func testPart2Input() throws {
-        guard let file = Bundle.module.path(forResource: "day1", ofType: "txt") else {
-            fatalError()
-        }
-        let input = try! String.init(contentsOfFile: file)
+        let input = testInput("day1")
         print("Day 1, part 2 \(Day1().part2(input: input))")
     }
 }

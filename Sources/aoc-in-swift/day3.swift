@@ -2,16 +2,6 @@
 // https://docs.swift.org/swift-book
 import Foundation
 
-struct Position {
-    let x: Int
-    let y: Int
-
-    init(_ x: Int, _ y: Int) {
-        self.x = x
-        self.y = y
-    }
-}
-
 enum Item {
     case Number((id: Int, amount: Int))
     case Symbol(Character)
@@ -46,20 +36,6 @@ extension Item: Hashable {
             amount.hash(into: &hasher)
         }
     }
-}
-
-extension Position: Hashable {
-    public static func == (lhs: Position, rhs: Position) -> Bool {
-        lhs.x == rhs.x && lhs.y == rhs.y
-    }
-
-    public func hash(into hasher: inout Hasher) {
-        x.hash(into: &hasher)
-        y.hash(into: &hasher)
-    }
-}
-
-extension Position: Equatable {
 }
 
 public struct Day3 {

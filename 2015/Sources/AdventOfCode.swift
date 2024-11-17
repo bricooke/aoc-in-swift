@@ -6,7 +6,6 @@ enum AdventError: Error {
 
 // Add each new day implementation to this array:
 let allChallenges: [any AdventDay] = [
-    Day00(),
     Day01(),
     Day02(),
     Day03(),

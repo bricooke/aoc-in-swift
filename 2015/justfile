@@ -1,5 +1,5 @@
 create day:
-    cp -i Sources/Data/Day00.txt Sources/Data/Day{{day}}.txt
+    touch Sources/Data/Day{{day}}.txt
     cp -i Templates/Solution.swift Sources/Day{{day}}.swift
     sed -i '' "s|Day00|Day{{day}}|" Sources/Day{{day}}.swift
     cp -i Templates/Test.swift Tests/Day{{day}}.swift

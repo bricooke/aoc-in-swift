@@ -19,7 +19,8 @@ struct Day00Tests {
                 ],
                 [
                     0
-                ])
+                ]
+            )
     ) func part1(data: String, expected: Int) throws {
         let challenge = Day00(data: data)
         #expect(
@@ -37,7 +38,8 @@ struct Day00Tests {
                 ],
                 [
                     0
-                ])
+                ]
+            )
     ) func part2(data: String, expected: Int) throws {
         let challenge = Day00(data: data)
         #expect(

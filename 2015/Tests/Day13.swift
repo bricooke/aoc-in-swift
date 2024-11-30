@@ -32,7 +32,8 @@ struct Day13Tests {
                 ],
                 [
                     330
-                ])
+                ]
+            )
     ) func part1(data: String, expected: Int) throws {
         let challenge = Day13(data: data)
         #expect(

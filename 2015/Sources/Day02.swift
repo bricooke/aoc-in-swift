@@ -22,7 +22,8 @@ struct Day02: AdventDay {
 
     func part1() throws -> Any {
         data.trimmingCharacters(in: .whitespacesAndNewlines).split(separator: "\n").reduce(0) {
-            partialResult, box in
+            partialResult,
+            box in
             let dimensions = dimensions(for: box)
             return partialResult + smallestSide(for: dimensions) + surfaceArea(for: dimensions)
         }
@@ -44,7 +45,8 @@ struct Day02: AdventDay {
 
     func part2() throws -> Any {
         data.trimmingCharacters(in: .whitespacesAndNewlines).split(separator: "\n").reduce(0) {
-            partialResult, box in
+            partialResult,
+            box in
             let dimensions = dimensions(for: box)
             return partialResult + ribbonForBow(dimensions) + ribbonForPresent(dimensions)
         }

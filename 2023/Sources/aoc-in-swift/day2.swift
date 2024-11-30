@@ -28,7 +28,8 @@ public struct Day2 {
         return String(
             games.map { game in
                 game.possible(with: limits) ? game.id : 0
-            }.reduce(0, +))
+            }.reduce(0, +)
+        )
     }
 
     public func part2(input: String) throws -> String {
@@ -42,7 +43,8 @@ public struct Day2 {
                     curr.blue = max(curr.blue, round.blue)
                 }
                 return curr.red * curr.blue * curr.green
-            }.reduce(0, +))
+            }.reduce(0, +)
+        )
     }
 
     /**

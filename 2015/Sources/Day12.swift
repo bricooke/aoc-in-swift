@@ -70,7 +70,9 @@ struct Day12: AdventDay {
     func part2() throws -> Any {
         let input = data.trimmingCharacters(in: .whitespacesAndNewlines)
         let json = try! JSONSerialization.jsonObject(
-            with: input.data(using: .utf8)!, options: .init())
+            with: input.data(using: .utf8)!,
+            options: .init()
+        )
         return sumWithoutRed(json)
     }
 }

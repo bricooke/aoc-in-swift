@@ -28,7 +28,8 @@ struct Day17Tests {
                 ],
                 [
                     (part1: 4, part2: 3)
-                ])
+                ]
+            )
     ) func part1(input: (Int, String), expected: (part1: Int, part2: Int)) async throws {
         let liters = input.0
         let data = input.1

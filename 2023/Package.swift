@@ -12,7 +12,8 @@ let package = Package(
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "aoc-in-swift",
-            targets: ["aoc-in-swift"])
+            targets: ["aoc-in-swift"]
+        )
     ],
     dependencies: [
         .package(url: "https://github.com/pointfreeco/swift-parsing", from: "0.13.0")
@@ -31,6 +32,7 @@ let package = Package(
             dependencies: ["aoc-in-swift"],
             resources: [
                 .copy("Resources")
-            ]),
+            ]
+        ),
     ]
 )

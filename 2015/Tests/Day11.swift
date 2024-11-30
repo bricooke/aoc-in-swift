@@ -21,8 +21,9 @@ struct Day11Tests {
             [
                 true,
                 false,
-            ])) func containsStraightOf3(data: String, expected: Bool) throws
-    {
+            ]
+        )
+    ) func containsStraightOf3(data: String, expected: Bool) throws {
         let challenge = Day11(data: data)
         #expect(
             challenge.containsStraightOf3(data)
@@ -42,8 +43,9 @@ struct Day11Tests {
                 true,
                 false,
                 false,
-            ])) func noInvalidChars(data: String, expected: Bool) throws
-    {
+            ]
+        )
+    ) func noInvalidChars(data: String, expected: Bool) throws {
         let challenge = Day11(data: data)
         #expect(
             challenge.containsInvalidChars(data)
@@ -67,8 +69,9 @@ struct Day11Tests {
                 true,
                 false,
                 false,
-            ])) func containsTwoPairs(data: String, expected: Bool) throws
-    {
+            ]
+        )
+    ) func containsTwoPairs(data: String, expected: Bool) throws {
         let challenge = Day11(data: data)
         #expect(
             challenge.contains2Pairs(data)
@@ -90,8 +93,9 @@ struct Day11Tests {
                 "xz",
                 "ya",
                 "aa",
-            ])) func incrementString(data: String, expected: String) throws
-    {
+            ]
+        )
+    ) func incrementString(data: String, expected: String) throws {
         let challenge = Day11(data: data)
         #expect(
             challenge.incrementString(data)
@@ -107,8 +111,9 @@ struct Day11Tests {
             ],
             [
                 "abcjaaaa"
-            ])) func incrementPastPoison(data: String, expected: String) throws
-    {
+            ]
+        )
+    ) func incrementPastPoison(data: String, expected: String) throws {
         let challenge = Day11(data: data)
         #expect(
             challenge.incrementPastInvalidChars(data)
@@ -126,8 +131,9 @@ struct Day11Tests {
             [
                 "abcdffaa",
                 "ghjaabcc",
-            ])) func nextPassword(data: String, expected: String) throws
-    {
+            ]
+        )
+    ) func nextPassword(data: String, expected: String) throws {
         let challenge = Day11(data: data)
         #expect(
             try challenge.part1()

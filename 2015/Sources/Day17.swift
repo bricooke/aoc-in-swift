@@ -17,8 +17,10 @@ struct Day17: AdventDay {
     }
 
     func solvePart1(
-        amountRemaining: Int, usedContainers: Set<String>,
-        availableContainers: [(key: String, value: Int)], matches: inout Set<Set<String>>
+        amountRemaining: Int,
+        usedContainers: Set<String>,
+        availableContainers: [(key: String, value: Int)],
+        matches: inout Set<Set<String>>
     ) -> Bool {
         if availableContainers.isEmpty {
             return false

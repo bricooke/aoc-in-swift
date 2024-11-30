@@ -62,7 +62,9 @@ class Day13: AdventDay {
             updatedPath.append(name)
             let updatedCost = cost + route.distance
             let (currCost, currPath) = solve(
-                from: name, cost: updatedCost, path: updatedPath
+                from: name,
+                cost: updatedCost,
+                path: updatedPath
             )
             if currCost > bestCost {
                 bestCost = currCost

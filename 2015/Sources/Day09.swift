@@ -54,8 +54,13 @@ struct Day09: AdventDay {
                     continue
                 }
                 let (currCost, currPath) = solve(
-                    longest: longest, from: city, cost: updatedCost, path: updatedPath,
-                    cities: cities, routes: routes)
+                    longest: longest,
+                    from: city,
+                    cost: updatedCost,
+                    path: updatedPath,
+                    cities: cities,
+                    routes: routes
+                )
                 if longest ? currCost > bestCost : currCost < bestCost {
                     bestCost = currCost
                     bestPath = currPath

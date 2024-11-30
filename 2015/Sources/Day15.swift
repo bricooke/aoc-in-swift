@@ -80,8 +80,8 @@ class Day15: AdventDay {
                 0,
                 { result, count in
                     result + count
-                }) == 100
-            {
+                }
+            ) == 100 {
                 results.append(temp)
                 return
             }

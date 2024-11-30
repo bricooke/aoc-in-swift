@@ -37,7 +37,8 @@ public struct Day17 {
 
         let graph = Graph(nodes: nodes)
         graph.heap.add(
-            Edge(weight: 0, to: Position(0, 0), directionCount: 0, direction: Position(0, 0)))
+            Edge(weight: 0, to: Position(0, 0), directionCount: 0, direction: Position(0, 0))
+        )
         return graph
     }
 
@@ -71,12 +72,13 @@ public struct Day17 {
                             weight: node + nextEdge.weight,
                             to: nextPosition,
                             directionCount: nextEdge.directionCount + 1,
-                            direction: nextEdge.direction))
+                            direction: nextEdge.direction
+                        )
+                    )
                 }
             }
 
-            for nextDirection in [Position(0, 1), Position(1, 0), Position(0, -1), Position(-1, 0)]
-            {
+            for nextDirection in [Position(0, 1), Position(1, 0), Position(0, -1), Position(-1, 0)] {
                 if nextDirection != nextEdge.direction
                     && nextDirection != Position(-nextEdge.direction.x, -nextEdge.direction.y)
                 {
@@ -87,7 +89,9 @@ public struct Day17 {
                                 weight: node + nextEdge.weight,
                                 to: nextPosition,
                                 directionCount: 1,
-                                direction: nextDirection))
+                                direction: nextDirection
+                            )
+                        )
                     }
                 }
             }
@@ -132,7 +136,9 @@ public struct Day17 {
                             weight: node + nextEdge.weight,
                             to: nextPosition,
                             directionCount: nextEdge.directionCount + 1,
-                            direction: nextEdge.direction))
+                            direction: nextEdge.direction
+                        )
+                    )
                 }
             }
 
@@ -150,7 +156,9 @@ public struct Day17 {
                                     weight: node + nextEdge.weight,
                                     to: nextPosition,
                                     directionCount: 1,
-                                    direction: nextDirection))
+                                    direction: nextDirection
+                                )
+                            )
                         }
                     }
                 }

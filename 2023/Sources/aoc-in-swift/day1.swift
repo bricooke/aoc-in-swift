@@ -16,7 +16,8 @@ public struct Day1 {
                     fatalError()
                 }
                 return result
-            }.reduce(0, +))
+            }.reduce(0, +)
+        )
     }
 
     public func part2(input: String) -> String {
@@ -39,6 +40,7 @@ public struct Day1 {
                     }
                 }
                 return digitsOnly
-            }.joined(separator: "\n"))
+            }.joined(separator: "\n")
+        )
     }
 }

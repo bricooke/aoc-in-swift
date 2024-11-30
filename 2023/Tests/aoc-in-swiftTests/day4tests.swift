@@ -24,17 +24,22 @@ final class Day4Tests: XCTestCase {
         XCTAssertEqual(
             [
                 Card(
-                    id: 1, winningNumbers: [41, 48, 83, 86, 17],
-                    myNumbers: [83, 86, 6, 31, 17, 9, 48, 53]),
+                    id: 1,
+                    winningNumbers: [41, 48, 83, 86, 17],
+                    myNumbers: [83, 86, 6, 31, 17, 9, 48, 53]
+                ),
                 Card(
-                    id: 2, winningNumbers: [13, 32, 20, 16, 61],
-                    myNumbers: [61, 30, 68, 82, 17, 32, 24, 19]),
+                    id: 2,
+                    winningNumbers: [13, 32, 20, 16, 61],
+                    myNumbers: [61, 30, 68, 82, 17, 32, 24, 19]
+                ),
             ],
             Day4().parse(
                 input: """
                     Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53
                     Card 2: 13 32 20 16 61 | 61 30 68 82 17 32 24 19
-                    """)
+                    """
+            )
         )
     }
 

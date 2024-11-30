@@ -6,6 +6,10 @@ struct Day19: AdventDay {
     struct Rule {
         let from: String
         let to: String
+
+        static func < (_ lhs: Rule, _ rhs: Rule) -> Bool {
+            return lhs.to.count < rhs.to.count
+        }
     }
 
     func parse() -> ([Rule], String) {
@@ -44,7 +48,33 @@ struct Day19: AdventDay {
         return results.count
     }
 
+    // This is a little annoying...this doesn't work with the sample test of
+    // HOHOHO going back to e in 6
+    //
+    // "Santa's favorite molecule, HOHOHO, can be made in 6 steps."
+    //
+    // but with the actual input I have this works. This is just working
+    // backwards from the molecule back to e.
+    // From skimming reddit it seems most, but not all, input worked with this.
     func part2() throws -> Any {
-        throw AdventError.notImplemented
+        let (rules, molecule) = parse()
+        var count = 0
+        var result = molecule
+
+        while result != "e" {
+            for rule in rules {
+                if result.contains(rule.to) {
+                    let searchRange = result.startIndex..<result.endIndex
+
+                    if let range = result.range(of: rule.to, range: searchRange) {
+                        result.replaceSubrange(range, with: rule.from)
+                    }
+
+                    count += 1
+                }
+            }
+        }
+
+        return count
     }
 }

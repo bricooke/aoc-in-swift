@@ -9,21 +9,31 @@ import Testing
 
 @testable import AdventOfCode
 
-struct Day00Tests {
+struct Day04Tests {
     @Test(
         "part1",
         arguments:
             zip(
                 [
                     """
+                    MMMSXXMASM
+                    MSAMXMSMSA
+                    AMXSXMAAMM
+                    MSAMASMSMX
+                    XMASAMXAMM
+                    XXAMMXXAMA
+                    SMSMSASXSS
+                    SAXAMASAAA
+                    MAMMMXMMMM
+                    MXMXAXMASX
                     """
                 ],
                 [
-                    0
+                    18
                 ]
             )
     ) func part1(data: String, expected: Int) throws {
-        let challenge = Day00(data: data)
+        let challenge = Day04(data: data)
         #expect(
             String(describing: try challenge.part1())
                 == String(describing: expected)
@@ -36,14 +46,24 @@ struct Day00Tests {
             zip(
                 [
                     """
+                    .M.S......
+                    ..A..MSMS.
+                    .M.S.MAA..
+                    ..A.ASMSM.
+                    .M.S.M....
+                    .......A..
+                    S.S.S.S.S.
+                    .A.A.A.A..
+                    M.M.M.M.M.
+                    ..........
                     """
                 ],
                 [
-                    0
+                    9
                 ]
             )
     ) func part2(data: String, expected: Int) throws {
-        let challenge = Day00(data: data)
+        let challenge = Day04(data: data)
         #expect(
             String(describing: try challenge.part2())
                 == String(describing: expected)

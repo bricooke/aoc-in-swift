@@ -1,0 +1,7 @@
+create day:
+    touch Sources/Data/Day{{day}}.txt
+    cp -i Templates/Solution.swift Sources/Day{{day}}.swift
+    sed -i '' "s|Day00|Day{{day}}|" Sources/Day{{day}}.swift
+    cp -i Templates/Test.swift Tests/Day{{day}}.swift
+    sed -i '' "s|Day00|Day{{day}}|" Tests/Day{{day}}.swift
+    sed -i '' "s|// NEXT DAY|Day{{day}}(),\n  // NEXT DAY|" Sources/AdventOfCode.swift

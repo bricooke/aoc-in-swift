@@ -25,30 +25,25 @@ struct Day05: AdventDay {
         return (rules, updates)
     }
 
+    func sort(_ update: [Int], rules: [(Int, Int)]) -> [Int] {
+        update.sorted(by: { l, r in
+            for rule in rules {
+                if rule.0 == l && rule.1 == r {
+                    return true
+                } else if rule.1 == l && rule.0 == r {
+                    return false
+                }
+            }
+            fatalError()
+        })
+    }
+
     func part1() throws -> Any {
         let (rules, updates) = parse()
 
         return updates.reduce(0) { result, update in
-            var isValid = true
-
-            for window in update.windows(ofCount: 2) {
-                let p1 = window.first!
-                let p2 = window.last!
-
-                for rule in rules {
-                    if (rule.0 == p1 || rule.1 == p1) && (rule.0 == p2 || rule.1 == p2) {
-                        if rule.0 != p1 {
-                            isValid = false
-                            break
-                        }
-                    }
-                }
-
-                if !isValid {
-                    break
-                }
-            }
-
+            let fixed = sort(update, rules: rules)
+            let isValid = fixed == update
             return result + (isValid ? update[(update.count / 2)] : 0)
         }
     }
@@ -57,30 +52,7 @@ struct Day05: AdventDay {
         let (rules, updates) = parse()
 
         return updates.reduce(0) { result, update in
-            var fixed = update
-
-            while true {
-                var swapped = false
-                resort: for i in 0..<update.count - 1 {
-                    let p1 = fixed[i]
-                    let p2 = fixed[i + 1]
-
-                    for rule in rules {
-                        if (rule.0 == p1 || rule.1 == p1) && (rule.0 == p2 || rule.1 == p2) {
-                            if rule.0 != p1 {
-                                // swap them
-                                fixed.swapAt(i, i + 1)
-                                swapped = true
-                                break resort
-                            }
-                        }
-                    }
-                }
-                if !swapped {
-                    break
-                }
-            }
-
+            let fixed = sort(update, rules: rules)
             if fixed == update {
                 return result
             } else {

@@ -9,21 +9,25 @@ import Testing
 
 @testable import AdventOfCode
 
-struct Day00Tests {
+struct Day02Tests {
     @Test(
         "part1",
         arguments:
             zip(
                 [
                     """
+                    ULL
+                    RRDDD
+                    LURDL
+                    UUUUD
                     """
                 ],
                 [
-                    0
+                    1985
                 ]
             )
     ) func part1(data: String, expected: Int) throws {
-        let challenge = Day00(data: data)
+        let challenge = Day02(data: data)
         #expect(
             String(describing: try challenge.part1())
                 == String(describing: expected)
@@ -36,14 +40,18 @@ struct Day00Tests {
             zip(
                 [
                     """
+                    ULL
+                    RRDDD
+                    LURDL
+                    UUUUD
                     """
                 ],
                 [
-                    0
+                    "5DB3"
                 ]
             )
-    ) func part2(data: String, expected: Int) throws {
-        let challenge = Day00(data: data)
+    ) func part2(data: String, expected: String) throws {
+        let challenge = Day02(data: data)
         #expect(
             String(describing: try challenge.part2())
                 == String(describing: expected)

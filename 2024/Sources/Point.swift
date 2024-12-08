@@ -6,7 +6,7 @@
 //
 
 /// Generic-ish point for use throughout the year.
-struct Point {
+struct Point: Equatable, Hashable {
     let x: Int
     let y: Int
 
@@ -16,7 +16,12 @@ struct Point {
     }
 
     func valid<T>(for map: [[T]]) -> Bool {
-        return y >= 0 && y < map.count && x >= 0 && x < map[y].count
+        if y < 0 || y >= map.count { return false }
+        return inBounds(map[y].count - 1, map.count - 1)
+    }
+
+    func inBounds(_ maxX: Int, _ maxY: Int) -> Bool {
+        return y >= 0 && y <= maxY && x >= 0 && x <= maxY
     }
 
     func value<T>(in map: [[T]]) -> T? {
@@ -53,4 +58,8 @@ struct Point {
             }
         }
     }
+}
+
+func abs(_ p: Point) -> Point {
+    return Point(abs(p.x), abs(p.y))
 }

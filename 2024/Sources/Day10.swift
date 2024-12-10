@@ -16,27 +16,14 @@ struct Day10: AdventDay {
             }
     }
 
-    func scoreTrailhead(from: Point, next: Int, map: [[Int]], ends: inout Set<Point>) {
+    func scoreTrailhead(from: Point, next: Int, map: [[Int]], ends: inout some Insertable<Point>) {
         if next == 10 {
-            ends.insert(from)
+            ends.insertElement(from)
             return
         }
         for neighbor in from.nsewNeighbors() {
             if neighbor.value(in: map) == next {
                 scoreTrailhead(from: neighbor, next: next + 1, map: map, ends: &ends)
-            }
-        }
-        return
-    }
-
-    func rateTrailhead(from: Point, next: Int, map: [[Int]], ends: inout [Point]) {
-        if next == 10 {
-            ends.append(from)
-            return
-        }
-        for neighbor in from.nsewNeighbors() {
-            if neighbor.value(in: map) == next {
-                rateTrailhead(from: neighbor, next: next + 1, map: map, ends: &ends)
             }
         }
         return
@@ -59,8 +46,26 @@ struct Day10: AdventDay {
 
         return trailheads.reduce(0) { partialResult, trailhead in
             var endPoints = [Point]()
-            rateTrailhead(from: trailhead, next: 1, map: map, ends: &endPoints)
+            scoreTrailhead(from: trailhead, next: 1, map: map, ends: &endPoints)
             return partialResult + endPoints.count
         }
+    }
+}
+
+/// Simple protocol array and set can conform to to have a common interface
+protocol Insertable<Element> {
+    associatedtype Element
+    mutating func insertElement(_ element: Element)
+}
+
+extension Array: Insertable {
+    mutating func insertElement(_ element: Element) {
+        self.append(element)
+    }
+}
+
+extension Set: Insertable {
+    mutating func insertElement(_ element: Element) {
+        self.insert(element)
     }
 }

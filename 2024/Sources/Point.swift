@@ -32,6 +32,17 @@ struct Point: Equatable, Hashable {
         }
     }
 
+    /// North South East West neighbors
+    func nsewNeighbors() -> [Point] {
+        [
+            Point(-1, 0),
+            Point(1, 0),
+            Point(0, 1),
+            Point(0, -1),
+        ].map { self + $0 }
+    }
+
+    // All neighbors, including diagonal
     func neighbors() -> [Point] {
         return (-1...1).reduce(into: [Point]()) { results, x in
             let _ = (-1...1).reduce(into: Void()) { _, y in

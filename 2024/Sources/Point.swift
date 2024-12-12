@@ -17,7 +17,7 @@ struct Point: Equatable, Hashable {
 
     func valid<T>(for map: [[T]]) -> Bool {
         if y < 0 || y >= map.count { return false }
-        return inBounds(map[y].count - 1, map.count - 1)
+        return inBounds(map[y].count - 1, map[y].count - 1)
     }
 
     func inBounds(_ maxX: Int, _ maxY: Int) -> Bool {

@@ -61,16 +61,37 @@ struct Day12Tests {
         )
     }
 
+    @Test func corners() {
+        let data = """
+            EEEEE
+            EXXXX
+            EEEEE
+            EXXXX
+            EEEEE
+            XXXOO
+            XXXOO
+            OOXOO
+            """
+        let challenge = Day12(data: data)
+        let map = challenge.parse()
+        #expect(challenge.corners(point: Point(0, 1), map: map) == 0)
+    }
+
     @Test(
         "part2",
         arguments:
             zip(
                 [
                     """
+                    EEEEE
+                    EXXXX
+                    EEEEE
+                    EXXXX
+                    EEEEE
                     """
                 ],
                 [
-                    0
+                    236
                 ]
             )
     ) func part2(data: String, expected: Int) throws {

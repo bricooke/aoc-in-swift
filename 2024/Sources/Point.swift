@@ -21,7 +21,7 @@ struct Point: Equatable, Hashable {
     }
 
     func inBounds(_ maxX: Int, _ maxY: Int) -> Bool {
-        return y >= 0 && y <= maxY && x >= 0 && x <= maxY
+        return y >= 0 && y <= maxY && x >= 0 && x <= maxX
     }
 
     func value<T>(in map: [[T]]) -> T? {

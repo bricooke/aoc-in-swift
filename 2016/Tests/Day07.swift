@@ -50,17 +50,22 @@ struct Day07Tests {
 
     @Test(
         "part2",
+        .serialized,
         arguments:
             zip(
                 [
-                    """
-                    """
+                    "aba[bab]xyz",
+                    "xyx[xyx]xyx",
+                    "zazbz[bzb]cdb",
                 ],
                 [
-                    0
+                    1,
+                    0,
+                    1,
                 ]
             )
     ) func part2(data: String, expected: Int) throws {
+        print("testing \(data)")
         let challenge = Day07(data: data)
         #expect(
             String(describing: try challenge.part2())

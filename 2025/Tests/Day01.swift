@@ -46,10 +46,24 @@ struct Day01Tests {
             zip(
                 [
                     """
+                    L150
+                    """,
                     """
+                    L68
+                    L30
+                    R48
+                    L5
+                    R60
+                    L55
+                    L1
+                    L99
+                    R14
+                    L82
+                    """,
                 ],
                 [
-                    0
+                    2,
+                    6,
                 ]
             )
     ) func part2(data: String, expected: Int) throws {

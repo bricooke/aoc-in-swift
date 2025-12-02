@@ -55,6 +55,43 @@ struct Day01: AdventDay {
     }
 
     func part2() throws -> Any {
-        throw AdventError.notImplemented
+        var position: Int = 50
+
+        return parse().map { command in
+            let movement = {
+                switch command {
+                case .left(let count):
+                    return -count
+                case .right(let count):
+                    return count
+                }
+            }()
+            // for every 100 spins, we passed 0
+            let prevPosition = position
+            position = position + movement
+            var zeros = abs(position) / 100
+
+            // if we land on 0 don't double count 100/100 == 1, so take 1 away.
+            if position >= 100 && position % 100 == 0 {
+                zeros -= 1
+            }
+            position = position % 100
+
+            if position < 0 {
+                position = 100 + position
+
+                // Add one for passing from positive to negative
+                if prevPosition > 0 {
+                    zeros += 1
+                }
+            }
+
+            // Add one for landing on 0 (see note above about having to take 1 away for 100/100)
+            if position == 0 {
+                zeros += 1
+            }
+
+            return zeros
+        }.reduce(0, +)
     }
 }

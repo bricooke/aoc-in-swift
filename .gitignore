@@ -9,3 +9,4 @@ DerivedData/
 .netrc
 .vscode
 */Sources/Data
+.env

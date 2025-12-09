@@ -1,4 +1,4 @@
-// swift-tools-version: 5.9
+// swift-tools-version: 6.2
 import PackageDescription
 
 let dependencies: [Target.Dependency] = [
@@ -10,7 +10,7 @@ let dependencies: [Target.Dependency] = [
 
 let package = Package(
     name: "AdventOfCode",
-    platforms: [.macOS(.v13)],
+    platforms: [.macOS(.v15)],
     dependencies: [
         .package(
             url: "https://github.com/apple/swift-algorithms.git",
@@ -37,13 +37,11 @@ let package = Package(
         .executableTarget(
             name: "AdventOfCode",
             dependencies: dependencies,
-            resources: [.copy("Data")],
-            swiftSettings: [.enableUpcomingFeature("BareSlashRegexLiterals")]
+            resources: [.copy("Data")]
         ),
         .testTarget(
             name: "AdventOfCodeTests",
-            dependencies: ["AdventOfCode"] + dependencies,
-            swiftSettings: [.enableUpcomingFeature("BareSlashRegexLiterals")]
+            dependencies: ["AdventOfCode"] + dependencies
         ),
     ]
 )
